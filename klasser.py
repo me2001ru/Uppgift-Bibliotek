@@ -1,6 +1,5 @@
 from funktioner import get_book_value, movie_start_worth
 from klasser_2 import Book, Cd, Movie
-# from operator import attrgetter
 
 
 class Library:
@@ -22,13 +21,11 @@ class Library:
 
     def print_list(self):
         # sort media_list before print executes
-        # self.media_lists.sort(reverse=False, key=lambda k: k)
-        # sorted(self.media_lists, key=lambda x: x['title'])
 
         # FIXME: sort-metoden har ingen inverkan !!!...
-        # for type_med in self.media_lists:
-        #     sorted(type_med, key=attrgetter('title'), reverse=False)
-        #     print(type_med)
+        # sorted(self.books_list, key=lambda book: book.title)
+        # sorted(self.cds_list, key=lambda cd: cd.title)
+        # sorted(self.movies_list, key=lambda cd: cd.title)
 
         for type_med in self.media_lists:
             for line in type_med:
