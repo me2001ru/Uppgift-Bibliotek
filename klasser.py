@@ -22,10 +22,12 @@ class Library:
     def print_list(self):
         # sort media_list before print executes
 
-        # FIXME: sort-metoden har ingen inverkan !!!...
-        # sorted(self.books_list, key=lambda book: book.title)
-        # sorted(self.cds_list, key=lambda cd: cd.title)
-        # sorted(self.movies_list, key=lambda cd: cd.title)
+        # FIXME: finslipa sort-metoden. Jobba på DRY
+        # lägg till att listan sorteras på antingen title eller pris.
+
+        self.books_list.sort(key=lambda x: x.title)
+        self.cds_list.sort(key=lambda x: x.title)
+        self.movies_list.sort(key=lambda x: x.title)
 
         for type_med in self.media_lists:
             for line in type_med:
