@@ -23,23 +23,20 @@ class Library:
 
     def print_list(self):
 
-        choice_of_sort = int(input("sort by title (1) or price (2): "))
-        print("here user gave us: ", choice_of_sort)
+        choice_of_sort = int(input("Sort by title (1) or price (2): "))
 
         # Listor sorteras efter den attributen användaren väljer att sortera efter.
         if choice_of_sort == 1:
-            print("ok, 1 (title) was chosen")
             self.books_list.sort(key=operator.attrgetter('title'))
             self.cds_list.sort(key=operator.attrgetter('title'))
             self.movies_list.sort(key=operator.attrgetter('title'))
         else:
-            print("ok, 2 (item_price) was chosen")
             self.books_list.sort(key=operator.attrgetter('item_price'))
             self.cds_list.sort(key=operator.attrgetter('item_price'))
             self.movies_list.sort(key=operator.attrgetter('item_price'))
 
         # Här börjar utskriften
-        print("{:20s}{:20s}{:20s}{:20s}{:20s}".format("title", "price", "auth/Dir/Singer", "length", "Year bought/# of track"))
+        print("{:20s}{:20s}{:20s}{:20s}{:20s}".format("Title", "Price", "Auth/Dir/Singer", "Length", "Year bought/# Of tracks"))
         print("----------------------------------------------------\n")
 
         for type_med in self.media_lists:
@@ -65,7 +62,7 @@ class Library:
             try:
                 new_value = (round(int(price) / counter))
 
-                # call function to set value on all same cds
+                # kallar funktion för att get värdet på alla samma cdn
                 self.same_cd_set_value(title, singer, new_value)
             except Exception as e:
                 print(e)
@@ -78,14 +75,14 @@ class Library:
     def this_function(self, media_option):
 
         if media_option == 1:
-            print("title, author, nr_of_pages, item_price, purchase_year")
+            print("Title, Author, Nr of pages, Item price, Purchase year")
             user_input = self.clean_string_list()
             book_worth = get_book_value(int(user_input[4]), int(user_input[3]))
             x = [user_input[0], user_input[1], user_input[2], book_worth, user_input[4]]
             self.add_book(x)
 
         elif media_option == 2:
-            print("title, singer, total_length, antal_spar, item_price")
+            print("Title, Singer, Total length, Nr of tracks, Item price")
             user_input = self.clean_string_list()
             x = [user_input[0], user_input[1], user_input[2], user_input[3], user_input[4]]
             self.add_cds(x)
@@ -97,7 +94,7 @@ class Library:
             self.print_list()
 
         else:
-            print("title, director, total_length, item_price, purchase_year, slitage_gradering")
+            print("Title, Director, Total length, Item price, Purchase year, Slitage gradering")
             user_input = self.clean_string_list()
             movie_worth = movie_start_worth(int(user_input[3]), int(user_input[4]), int(user_input[5]))
             x = [user_input[0], user_input[1], user_input[2], movie_worth, user_input[4], user_input[5]]

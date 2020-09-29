@@ -11,7 +11,7 @@ def enter_option():
 
 
 # HÄR STARTAR PROGRAMMET
-print("welcome you media archive!")
+print("Welcome you media archive!")
 a_library = Library()
 
 # Alla filer laddas in
@@ -53,7 +53,7 @@ except Exception:
 # Användaren kommer alltid hit
 option_made = True
 while option_made:
-    # Värdet (valet) som assignas till option_made, kommer från funktion högst upp i filen
+    # Värdet (användarens val) som assignas till option_made, kommer från funktion högst upp i filen
     option_chosen = enter_option()
 
     if option_chosen == 1:
@@ -110,7 +110,7 @@ while option_made:
             for data in my_movied_data:
                 thewriter.writerow(data)
 
-        print("ok. End program. Goodbye!")
+        print("Ok. End program. Goodbye!")
         option_made = False
 
     else:
