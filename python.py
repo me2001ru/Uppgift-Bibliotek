@@ -10,12 +10,14 @@ def enter_option():
         print("Wrong input, try again...")
 
 
+# HÄR STARTAR PROGRAMMET
 print("welcome you media archive!")
 a_library = Library()
 
+# Alla filer laddas in
 file_types = ["book_library.csv", "cds_library.csv", "movies_library.csv"]
 
-# skippar movies här
+# Läser in böcker och cdn här
 for j in range(len(file_types)-1):
     try:
         with open(file_types[j], "r") as input_file:
@@ -35,7 +37,7 @@ for j in range(len(file_types)-1):
     except Exception:
         print(f"{file_types[j]} file not found.")
 
-# tar läser in movies- datafilen här istället
+# Läser in movies datafilen här istället
 try:
     with open(file_types[2], "r") as input_file:
         file_reader = csv.reader(input_file)
@@ -48,9 +50,10 @@ try:
 except Exception:
     print(f"{file_types[2]} file not found.")
 
-
+# Användaren kommer alltid hit
 option_made = True
 while option_made:
+    # Värdet (valet) som assignas till option_made, kommer från funktion högst upp i filen
     option_chosen = enter_option()
 
     if option_chosen == 1:
@@ -63,10 +66,9 @@ while option_made:
         a_library.this_function(3)
 
     elif option_chosen == 6:
-        print("\nTitle\tAuth\\Dir\\Singer\tLength\tPrice\tBought")
-        print("----------------------------------------------------\n")
         a_library.this_function(6)
 
+    # När användaren väljer 0, sparas allting till respektive medielista och avslutar programmet
     elif option_chosen == 0:
         def i_vars_func(i):
             return vars(i)
@@ -84,7 +86,8 @@ while option_made:
             my_movied_data.append(i_vars_func(i))
 
         with open("book_library.csv", "w", newline='') as book_file:
-            fieldnames = ["title", "author", "purchase_year", "nr_of_pages", "item_price"]
+            # changes made here
+            fieldnames = ["title", "author", "nr_of_pages", "item_price", "purchase_year"]
             thewriter = csv.DictWriter(book_file, fieldnames=fieldnames)
             thewriter.writeheader()
 

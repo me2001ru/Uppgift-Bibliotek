@@ -1,5 +1,6 @@
 from funktioner import get_book_value, movie_start_worth
 from klasser_2 import Book, Cd, Movie
+import operator
 
 
 class Library:
@@ -10,6 +11,7 @@ class Library:
         self.movies_list = []
         self.media_lists = [self.books_list, self.cds_list, self.movies_list]
 
+    # Först skapas funktionen med klassen Book, Cd eller Movie, för att sedan läggas in i sin lista
     def add_book(self, book):
         self.books_list.append(Book(*book))
 
@@ -20,16 +22,28 @@ class Library:
         self.movies_list.append(Movie(*movie))
 
     def print_list(self):
-        # sort media_list before print executes
 
-        # FIXME: finslipa sort-metoden. Jobba på DRY
-        # lägg till att listan sorteras på antingen title eller pris.
+        choice_of_sort = int(input("sort by title (1) or price (2): "))
+        print("here user gave us: ", choice_of_sort)
 
-        self.books_list.sort(key=lambda x: x.title)
-        self.cds_list.sort(key=lambda x: x.title)
-        self.movies_list.sort(key=lambda x: x.title)
+        # Listor sorteras efter den attributen användaren väljer att sortera efter.
+        if choice_of_sort == 1:
+            print("ok, 1 (title) was chosen")
+            self.books_list.sort(key=operator.attrgetter('title'))
+            self.cds_list.sort(key=operator.attrgetter('title'))
+            self.movies_list.sort(key=operator.attrgetter('title'))
+        else:
+            print("ok, 2 (item_price) was chosen")
+            self.books_list.sort(key=operator.attrgetter('item_price'))
+            self.cds_list.sort(key=operator.attrgetter('item_price'))
+            self.movies_list.sort(key=operator.attrgetter('item_price'))
+
+        # Här börjar utskriften
+        print("{:20s}{:20s}{:20s}{:20s}{:20s}".format("title", "price", "auth/Dir/Singer", "length", "Year bought/# of track"))
+        print("----------------------------------------------------\n")
 
         for type_med in self.media_lists:
+            print()
             for line in type_med:
                 print(line)
 

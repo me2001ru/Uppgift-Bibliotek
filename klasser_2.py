@@ -5,11 +5,11 @@ class Book:
         self.title = title
         self.author = author
         self.nr_of_pages = nr_of_pages
-        self.item_price = item_price
+        self.item_price = int(item_price)
         self.purchase_year = purchase_year
 
     def __repr__(self):
-        string = self.title + "\t" + self.author + "\t" + str(self.nr_of_pages) + "\t" + str(self.item_price) + "\t" + str(self.purchase_year)
+        string = "{:20s}{:20s}{:20s}{:20s}{:20s}".format(self.title, str(self.item_price), self.author, str(self.nr_of_pages), str(self.purchase_year))
         return string
 
 
@@ -19,10 +19,10 @@ class Cd:
         self.singer = singer
         self.total_length = total_length
         self.antal_spar = antal_spar
-        self.item_price = item_price
+        self.item_price = int(item_price)
 
     def __repr__(self):
-        string = self.title + "\t" + self.singer + "\t" + str(self.total_length) + "\t" + str(self.antal_spar) + "\t" + str(self.item_price)
+        string = "{:20s}{:20s}{:20s}{:20s}{:20s}".format(self.title, str(self.item_price), self.singer, str(self.total_length), str(self.antal_spar))
         return string
 
 
@@ -31,10 +31,10 @@ class Movie:
         self.title = title
         self.director = director
         self.total_length = total_length
-        self.item_price = item_price
+        self.item_price = int(item_price)
         self.purchase_year = purchase_year
         self.grade = grade
 
     def __repr__(self):
-        string = self.title + "\t" + self.director + "\t" + str(self.total_length) + "\t" + str(self.item_price) + "\t" + str(self.purchase_year)
+        string = "{:20s}{:20s}{:20s}{:20s}{:20s}".format(self.title, str(self.item_price), self.director, str(self.total_length), str(self.purchase_year))
         return string
