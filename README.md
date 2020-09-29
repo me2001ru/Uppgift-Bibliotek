@@ -32,3 +32,4 @@ Kör igång programmet med **python.py**
    * Avslut med att trycka på '0'
 
 4. Vid avslut, sparas alla värden - även det som laddades in i början (förutsatt det fanns något att ladda in)
+..
