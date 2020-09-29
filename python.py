@@ -26,11 +26,11 @@ for j in range(len(file_types)-1):
 
             for row in file_reader:
                 x = [row[0], row[1], row[2], row[3], row[4]]
-            if j == 0:
-                a_library.add_book(x)
+                if j == 0:
+                    a_library.add_book(x)
 
-            elif j == 1:
-                a_library.add_cds(x)
+                elif j == 1:
+                    a_library.add_cds(x)
 
     except Exception:
         print(f"{file_types[j]} file not found.")
@@ -46,7 +46,7 @@ try:
             x = [row[0], row[1], row[2], row[3], row[4], row[5]]
             a_library.add_movie(x)
 except Exception:
-    print(f"{file_types[j]} file not found.")
+    print(f"{file_types[2]} file not found.")
 
 
 option_made = True
